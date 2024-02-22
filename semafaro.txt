@@ -1,0 +1,51 @@
+int vermelho = 13;
+int amarelo = 12;
+int verde = 11;
+int vermelho_pedestre = 7;
+int verde_pedestre = 6;
+int botao = 2;
+
+
+void setup() {
+  pinMode(vermelho, OUTPUT);
+  pinMode(amarelo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(vermelho_pedestre, OUTPUT);
+  pinMode(verde_pedestre, OUTPUT);
+  pinMode(botao, INPUT);
+  digitalWrite(verde, HIGH);
+  digitalWrite(vermelho_pedestre, HIGH);
+   
+}
+
+void loop() {
+ if(digitalRead(botao) == HIGH)
+ {
+   delay(1000);
+   digitalWrite(verde, LOW);
+   digitalWrite(amarelo, HIGH);
+   delay(5000);
+   digitalWrite(amarelo, LOW);
+   digitalWrite(vermelho, HIGH);
+   delay(1000);
+   digitalWrite(vermelho_pedestre, LOW);
+   digitalWrite(verde_pedestre, HIGH);
+   delay(10000);
+   digitalWrite(verde_pedestre, LOW);
+   
+   for( int aux = 0; aux < 5; aux++)
+   {
+     digitalWrite(vermelho_pedestre, HIGH);
+     delay(500);
+     digitalWrite(vermelho_pedestre, LOW);
+     delay(500);
+   }
+   
+   digitalWrite(vermelho_pedestre, HIGH);
+   delay(1000); 
+   digitalWrite(vermelho, LOW);
+   digitalWrite(verde, HIGH);
+   delay(10000);
+ }
+  
+}
